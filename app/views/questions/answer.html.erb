@@ -1,0 +1,33 @@
+<!-- app/views/questions/answer.html.erb -->
+<div class="mt-4 mx-4">
+  <h2>Stupid Coaching</h2>
+
+  <div class="my-4">
+    <div class="callout">
+      <p><%= params[:question] %></p>
+      <p><em>- You</em></p>
+    </div>
+
+    <div class="callout callout-answer">
+      <p><strong><%= @answer %></strong></p>
+      <p><em>- Your coach</em></p>
+    </div>
+  </div>
+
+  <%= link_to "Ask a new question", ask_path, class: "text-decoration-none" %>
+
+<div class="my-5">
+    <h3>History</h3>
+    <% session[:questions].each_with_index do |question, index| %>
+      <div class="callout">
+        <p> <%= question %></p>
+        <p><em>- You</em></p>
+      </div>
+      <div class="callout">
+        <p><%= session[:answers][index] %></p>
+        <p><em>- Your coach</em></p>
+      </div>
+    <% end %>
+  </div>
+
+</div>
